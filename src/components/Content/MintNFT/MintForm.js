@@ -3,8 +3,21 @@ import { useState, useContext } from 'react';
 import Web3Context from '../../../store/web3-context';
 import CollectionContext from '../../../store/collection-context';
 
+
+const projectId = '2It3ivF0SkbP0hKovmJ8cAPxZVD';
+const projectSecret = 'cdf09ed7c0e5c59c1cbff93d2db8d054';
+const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+
 const ipfsClient = require('ipfs-http-client');
-const ipfs = ipfsClient.create({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+const ipfs = ipfsClient.create({ 
+  host: 'ipfs.infura.io',
+    port: 5001,
+    protocol: 'https',
+    apiPath: '/api/v0',
+    headers: {
+      authorization: auth
+    }
+   });
 
 const MintForm = () => {  
   const [enteredName, setEnteredName] = useState('');
