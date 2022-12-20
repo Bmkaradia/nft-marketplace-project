@@ -1,9 +1,8 @@
 const ipfsClient = require('ipfs-http-client');
-const projectId = '2It3ivF0SkbP0hKovmJ8cAPxZVD';
-const projectSecret = 'cdf09ed7c0e5c59c1cbff93d2db8d054';
+const projectId = 'xxxxxxxxxx';
+const projectSecret = 'xxxxxxxx';
 async function main() {
-//curl -X POST -F file=@test.png -u "2It3ivF0SkbP0hKovmJ8cAPxZVD:cdf09ed7c0e5c59c1cbff93d2db8d054" "https://ipfs.infura.io:5001/api/v0/add" --insecure -A "curl"
-const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+ const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 
  const client = await ipfsClient.create({
     host: 'ipfs.infura.io',
